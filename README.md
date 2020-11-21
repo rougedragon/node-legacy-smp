@@ -10,7 +10,7 @@ Get **advancements progression**
 
 ```js
 const LegacySMP = require("./index");
-const LegacySMPAdvancements = new LegacySMP.Advancements
+const LegacySMPAdvancements = new LegacySMP.Advancements();
 
 async function main() {
     advancements = await LegacySMPAdvancements.fetchAdvancementsProgression(); // Fetch advancements progression
