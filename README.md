@@ -8,7 +8,8 @@ Get **advancements progression**
 
 ### Get advencements progression
 
-```const LegacySMP = require("./index");
+```js
+const LegacySMP = require("./index");
 const LegacySMPAdvancements = new LegacySMP.Advancements
 
 async function main() {
