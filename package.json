@@ -1,0 +1,30 @@
+{
+  "name": "node-legacy-smp",
+  "version": "1.0.0",
+  "description": "This is an api for the minecraft server legacy SMP",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rougedragon/node-legacy-smp.git"
+  },
+  "author": "Rouge_dragon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rougedragon/node-legacy-smp/issues"
+  },
+  "homepage": "https://github.com/rougedragon/node-legacy-smp#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "legacy",
+    "smp",
+    "node",
+    "api"
+  ]
+}
