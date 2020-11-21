@@ -2,11 +2,11 @@
 
 ## Features
 
-Get **advancement progression**
+Get **advancements progression**
 
 ## Exemples
 
-### Get advencements progress
+### Get advencements progression
 
 ```const LegacySMP = require("./index");
 const LegacySMPAdvancements = new LegacySMP.Advancements
