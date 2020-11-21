@@ -1,12 +1,12 @@
-#Node Legacy SMP
+# Node Legacy SMP
 
-##Features
+## Features
 
 Get **advancement progression**
 
-##Exemples
+## Exemples
 
-###Get advencements progress
+### Get advencements progress
 
 ```const LegacySMP = require("./index");
 const LegacySMPAdvancements = new LegacySMP.Advancements
