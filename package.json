@@ -1,7 +1,7 @@
 {
   "name": "node-legacy-smp",
   "version": "1.0.0",
-  "description": "This is an api for the minecraft server legacy SMP",
+  "description": "This is an api for the legacy SMP minecraft server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
