@@ -9,7 +9,7 @@ Get **advancements progression**
 ### Get advencements progression
 
 ```js
-const LegacySMP = require("./index");
+const LegacySMP = require("node-legacy-smp");
 const LegacySMPAdvancements = new LegacySMP.Advancements();
 
 async function main() {
@@ -23,4 +23,5 @@ async function main() {
     */
 }
 
-main();```
+main();
+```
