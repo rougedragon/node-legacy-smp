@@ -4,6 +4,12 @@
 
 Get **advancements progression**
 
+## Installing
+
+```
+npm i node-legacy-smp
+```
+
 ## Exemples
 
 ### Get advencements progression
