@@ -1,8 +1,24 @@
 const fetch = require("node-fetch");
 const cheerio = require('cheerio');
+const Entities = require('html-entities').AllHtmlEntities;
 
+const entities = new Entities();
 const CACHE_MINUTES = 15;
 var cache = {};
+
+function htmlToText(html){
+    var html2 = html.replace(/<style([\s\S]*?)<\/style>/gi, '')
+    .replace(/<script([\s\S]*?)<\/script>/gi, '')
+    .replace(/<\/div>/ig, '\n')
+    .replace(/<\/li>/ig, '\n')
+    .replace(/<li>/ig, '  *  ')
+    .replace(/<\/ul>/ig, '\n')
+    .replace(/<\/p>/ig, '\n')
+    .replace(/<br\s*[\/]?>/gi, "\n")
+    .replace(/<[^>]+>/ig, '');
+    html2 = entities.decode(html2);
+    return html2;
+}
 
 module.exports = class Advancements {
     constructor() {}
@@ -39,7 +55,10 @@ module.exports = class Advancements {
         let latestAdvancementPlayerName = latestAdvancementDiv.children('.card').children('.card-body').children('.card-text').last().children('small').children('a').children('img').attr('alt');
         let latestAdvancementPlayerImageRef = 'https://legacysmp.com' + latestAdvancementDiv.children('.card').children('.card-body').children('.card-text').last().children('small').children('a').children('img').attr('src');
         let latestAdvancementTimeCompleted = latestAdvancementDiv.children('.card').children('.card-body').children('.card-text').last().children('small').text();
-        
+        latestAdvancementTitle = htmlToText(latestAdvancementTitle);
+        latestAdvancementCondition = htmlToText(latestAdvancementCondition);
+
+
         let leaderboardHtml = $('.table').children('tbody');
         let leaderboard = [];
         for(var i = 1; i < 16; i++){
