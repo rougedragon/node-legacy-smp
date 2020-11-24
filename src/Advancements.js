@@ -13,7 +13,6 @@ module.exports = class Advancements {
             var now = new Date().getTime();
             if ( ('AdvancementsProgression' in cache) && ( (now - cache['AdvancementsProgression'].timestamp) < (CACHE_MINUTES * 60 * 1000) ) ) {
                 resolve(cache['AdvancementsProgression'].content);
-                console.log('From cache');
             }
             else { 
                 await this.loadMainPageAdvancements();
@@ -40,6 +39,24 @@ module.exports = class Advancements {
         let latestAdvancementPlayerName = latestAdvancementDiv.children('.card').children('.card-body').children('.card-text').last().children('small').children('a').children('img').attr('alt');
         let latestAdvancementPlayerImageRef = 'https://legacysmp.com' + latestAdvancementDiv.children('.card').children('.card-body').children('.card-text').last().children('small').children('a').children('img').attr('src');
         let latestAdvancementTimeCompleted = latestAdvancementDiv.children('.card').children('.card-body').children('.card-text').last().children('small').text();
+        
+        let leaderboardHtml = $('.table').children('tbody');
+        let leaderboard = [];
+        for(var i = 1; i < 16; i++){
+            let leaderboardPlayerHtml = leaderboardHtml.find('tr:nth-child('+ i + ')');
+            let position = leaderboardPlayerHtml.children('th').text();
+            let name = leaderboardPlayerHtml.children('td').children('a').children('img').attr('alt');
+            let imageRef = 'https://legacysmp.com' + leaderboardPlayerHtml.children('td').children('a').children('img').attr('src');
+            let advancementsMade = leaderboardPlayerHtml.children('.text-right').text();
+            let leaderboardPlayer = {
+                'position': position,
+                'name': name,
+                'imageRef': imageRef,
+                'advancementsMade': advancementsMade
+            }
+            leaderboard.push(leaderboardPlayer);
+        }
+
         var content = {};
         content['percentage'] = pourcentage.text();
         content['completed'] = advancementsCompleted.text().substr(0,advancementsCompleted.text().indexOf(' '));
@@ -48,11 +65,11 @@ module.exports = class Advancements {
         content['latestAdvancementPlayerName'] = latestAdvancementPlayerName;
         content['latestAdvancementPlayerImageRef'] = latestAdvancementPlayerImageRef;
         content['latestAdvancementTimeCompleted'] = latestAdvancementTimeCompleted;
+        content['leaderboard'] = leaderboard;
 
         cache['AdvancementsProgression'] = {
             'timestamp': now,
             'content': content
         }
-        console.log('From request');
     }
 }
