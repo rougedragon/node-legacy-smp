@@ -2,8 +2,8 @@
 
 ## Features
 
-Get the **latest new advancement**
-Get the **advancement leaderboard**
+Get the **latest new advancement**\
+Get the **advancement leaderboard**\
 Get advancements by **category**
 
 ## Installing
