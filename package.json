@@ -1,6 +1,6 @@
 {
   "name": "node-legacy-smp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is an api for the legacy SMP minecraft server",
   "main": "index.js",
   "scripts": {
