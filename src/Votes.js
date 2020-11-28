@@ -86,7 +86,7 @@ module.exports = class Votes {
         let nbOfVotes = $('.topic').children('.time_remaining').text();
         nbOfVotes = nbOfVotes.substring(
             nbOfVotes.indexOf(".") + 2,
-            nbOfVotes.indexOf("v") - 2
+            nbOfVotes.indexOf("v") - 1
         );
         nbOfVotes = nbOfVotes.replace(/,/gi,'');
         nbOfVotes = parseInt(nbOfVotes);
