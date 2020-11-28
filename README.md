@@ -4,7 +4,9 @@
 
 Get the **latest new advancement**\
 Get the **advancement leaderboard**\
-Get advancements by **category**
+Get advancements by **category**\
+Get **vote options**\
+Get **previous** vote result
 
 ## Installing
 
@@ -12,7 +14,7 @@ Get advancements by **category**
 npm i node-legacy-smp
 ```
 
-## Exemples
+## Examples
 
 ### Get advencements progression
 
@@ -121,4 +123,63 @@ async function main() {
 
 main();
 
+```
+
+### Get vote options
+
+```js
+const LegacySMP = require("node-legacy-smp");
+const LegacySMPVotes = new LegacySMP.Votes();
+
+async function main() {
+    var votePage = await LegacySMPVotes.fetchVotes();
+    console.log(votePage.voteOptions)
+    /*
+    [
+        {
+            name: 'Drop Your Wallet!',
+            description: 'Must carry all your diamonds on you at all times',
+            votePercentage: 15.342465753424658,
+            nbOfVotes: 56
+        },
+        {
+            name: 'Face-Off',
+            description: 'Always wear the last head you got as a drop',
+            votePercentage: 10.41095890410959,
+            nbOfVotes: 38
+        }...
+    ]
+    */
+
+   console.log(votePage.voteTimeLeft); // '14 days to go'
+   console.log(votePage.nbOfVotes); // 362
+   console.log(votePage.question); // 'Next vote...'
+}
+
+main();
+```
+
+### Get previous vote result
+
+```js
+const LegacySMP = require("node-legacy-smp");
+const LegacySMPVotes = new LegacySMP.Votes();
+
+async function main() {
+    var votePage = await LegacySMPVotes.fetchVotes();
+    console.log(votePage.previousResults)
+    /*
+    [
+        {
+            question: 'How evil do you feel?',
+            name: 'Blood Nights',
+            description: 'You must fight anyone you see at night.... to the death!',
+            nbOfVotes: 5332,
+            timeClosed: 'Closed about 11 hours ago'
+        }
+    ]
+    */
+}
+
+main();
 ```
