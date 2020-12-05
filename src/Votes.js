@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const Entities = require('html-entities').AllHtmlEntities;
 
 const entities = new Entities();
-const CACHE_MINUTES = 15;
+let CACHE_MINUTES = 15;
 cache = {};
 
 function htmlToText(html){
@@ -22,6 +22,10 @@ function htmlToText(html){
 
 module.exports = class Votes {
     constructor() {}
+
+    async setCacheMinutes(minutes) {
+        CACHE_MINUTES = minutes;
+    }
 
     async fetchVotes() {
         return new Promise(async (resolve, reject) => {

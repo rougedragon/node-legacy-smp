@@ -4,7 +4,7 @@ const { html } = require("cheerio");
 const Entities = require('html-entities').AllHtmlEntities;
 
 const entities = new Entities();
-const CACHE_MINUTES = 15;
+let CACHE_MINUTES = 15;
 var cache = {};
 const urlAdvancementsCategories = {
     ADVANTURE: '2b68700a-9e86-4a4e-a5d4-a10fac65afa2',
@@ -62,6 +62,10 @@ module.exports = class Advancements {
         STATISTICS: 'STATISTICS',
         STORY: 'STORY',
         WEAPONRY: 'WEAPONRY'
+    }
+
+    async setCacheMinutes(minutes) {
+        CACHE_MINUTES = minutes;
     }
 
     async fetchAdvancementsProgression() {
