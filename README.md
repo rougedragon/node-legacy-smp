@@ -6,7 +6,8 @@ Get the **latest new advancement**\
 Get the **advancement leaderboard**\
 Get advancements by **category**\
 Get **vote options**\
-Get **previous** vote result
+Get **previous** vote result\
+Set **cache time**
 
 ## Installing
 
@@ -179,6 +180,21 @@ async function main() {
         }
     ]
     */
+}
+
+main();
+```
+
+### Set cache time
+
+```js
+const LegacySMP = require("node-legacy-smp");
+const LegacySMPVotes = new LegacySMP.Votes();
+const LegacySMPAdvancements = new LegacySMP.Advancements();
+
+async function main() {
+    LegacySMPVotes.setCacheMinutes(5);
+    LegacySMPAdvancements.setCacheMinutes(7);
 }
 
 main();
